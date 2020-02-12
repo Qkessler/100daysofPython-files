@@ -1,0 +1,9 @@
+
+from datetime import datetime
+from datetime import timedelta
+
+
+def timer(time):
+    initial = datetime.today().time
+    for i in range(0, time, 1):
+        print(str(initial - 1))
