@@ -66,11 +66,13 @@ class Game():
              ]
         print('Welcome to the game of RPS!')
         print('What is your name?')
-        name = ""
+        name = input("- ")
+        name.strip()
         while name == "":
             name = input("- ").strip()
-            if name == " " or name == "":
-                print ("ERROR: You have a name!")
+            if name == "":
+                raise ValueError("ERROR: Name cannot be blank!")    
+        print("Hey {}! Welcome to the rps game!".format(name))
         print('You start with 3 lives.')
 
         while self.game_on():
