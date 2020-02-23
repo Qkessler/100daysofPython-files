@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 class Roll():
@@ -66,8 +67,12 @@ class Game():
         print('Welcome to the game of RPS!')
         print('What is your name?')
         name = input("- ")
-        print("Hello {}! \nLet's play a game of RPS!".format(name))
-        print()
+        name.strip()
+        while name == "":
+            name = input("- ").strip()
+            if name == "":
+                raise ValueError("ERROR: Name cannot be blank!")    
+        print("Hey {}! Welcome to the rps game!".format(name))
         print('You start with 3 lives.')
 
         while self.game_on():
