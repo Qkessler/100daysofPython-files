@@ -1,6 +1,9 @@
 import random
 import sys
+import logbook
 
+
+app_log = logbook.Logger('App')
 
 class Roll():
     def __init__(self, name):
@@ -41,10 +44,12 @@ class Player():
 
 
 class Game():
+
     def __init__(self):
         self.lives = 3
 
     def main(self):
+        app_log.trace("Initializing setup and gameloop.")
         self.setup()
         self.game_loop()
 
