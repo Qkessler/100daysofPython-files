@@ -76,48 +76,58 @@ class Game():
         while name == "":
             name = input("- ").strip()
             if name == "":
-                raise ValueError("ERROR: Name cannot be blank!")    
+                app_log.error("User chose a blank name")
+                raise ValueError("ERROR: Name cannot be blank!")
+            
+        app_log.trace("User's name: {}".format(name))
         print("Hey {}! Welcome to the rps game!".format(name))
         print('You start with 3 lives.')
 
+        app_log.trace("Entering main loop.")
+        number_choice = 1
         while self.game_on():
             machine_choice = random.choice(choices)
             print('What are you choosing? r, p, s: ')
             choice = input("- ")
+            app_log.trace("{} user's choice is {}.".format(number_choice, choice))
 
             if choice == 'r':
                 print('You have chosen Rock!')
                 print("The machine's choice was {}!".format(machine_choice))
                 if machine_choice == "Rock":
-                    print('Tied!')
+                    result = 'Tied!'
                 elif machine_choice == 'Paper':
-                    print('Paper > Rock! You lose!')
+                    result = 'Paper > Rock! You lose!'
                     self.decrement_lives()
                 else:
-                    print('Scissors < Rock! You win!')
+                    result = 'Scissors < Rock! You win!'
             elif choice == 'p':
                 print('You have chosen Paper!')
                 print("The machine's choice was {}!".format(machine_choice))
                 if machine_choice == "Paper":
-                    print('Tied!')
+                    result = 'Tied!'
                 elif machine_choice == 'Rock':
-                    print('Paper > Rock! You win!')
+                    result = 'Paper > Rock! You win!'
                 else:
-                    print('Scissors > Paper! You lose!')
+                    result = 'Scissors > Paper! You lose!'
                     self.decrement_lives()
             elif choice == 's':
                 print('You have chosen Scissors!')
                 print("The machine's choice was {}!".format(machine_choice))
                 if machine_choice == "Scissors":
-                    print('Tied!')
+                    result = 'Tied!'
                 elif machine_choice == 'Paper':
-                    print('Paper < Scissors! You win!')
+                    result = 'Paper < Scissors! You win!'
                 else:
-                    print('Scissors < Rock! You lose!')
+                    result = 'Scissors < Rock! You lose!'
                     self.decrement_lives()
             else:
+                app_log.warn("User chose a non supported choice: {}".format(choice))
                 print('Your 3 choices are: r, s, p!')
+            app_log.trace("{} machine's choice is {}.".format(number_choice, machine_choice))
             print()
             print('Lives: {}'.format(self.lives))
+            number_choice += 1
 
+        app_log.trace("Game ended")
         print('You have lost all your lifes! Come play other time!')

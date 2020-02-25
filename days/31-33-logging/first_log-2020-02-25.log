@@ -1,0 +1,48 @@
+[2020-02-25 07:42:00.492254] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: first_log.log
+[2020-02-25 07:42:00.492369] TRACE: App: Initializing setup and gameloop.
+[2020-02-25 07:44:22.051126] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: first_log.log
+[2020-02-25 07:44:22.051215] TRACE: App: Initializing setup and gameloop.
+[2020-02-25 07:44:23.761063] TRACE: App: User's name: Quique
+[2020-02-25 07:52:56.926304] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: first_log.log
+[2020-02-25 07:52:56.926397] TRACE: App: Initializing setup and gameloop.
+[2020-02-25 07:52:59.227182] TRACE: App: User's name: Quique
+[2020-02-25 07:52:59.227562] TRACE: App: Entering main loop.
+[2020-02-25 07:53:00.084011] TRACE: App: 1 user's choice is r.
+[2020-02-25 07:53:00.084388] TRACE: App: 1 machine's choice is Paper.
+[2020-02-25 07:53:01.170963] TRACE: App: 1 user's choice is p.
+[2020-02-25 07:53:01.171335] TRACE: App: 1 machine's choice is Rock.
+[2020-02-25 07:53:01.925218] TRACE: App: 1 user's choice is sp.
+[2020-02-25 07:53:01.925541] WARNING: App: User chose a non supported choice: sp
+[2020-02-25 07:53:01.925772] TRACE: App: 1 machine's choice is Rock.
+[2020-02-25 07:53:02.916886] TRACE: App: 1 user's choice is p.
+[2020-02-25 07:53:02.917272] TRACE: App: 1 machine's choice is Paper.
+[2020-02-25 07:53:03.566754] TRACE: App: 1 user's choice is s.
+[2020-02-25 07:53:03.567132] TRACE: App: 1 machine's choice is Rock.
+[2020-02-25 07:53:33.419229] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: first_log.log
+[2020-02-25 07:53:33.419320] TRACE: App: Initializing setup and gameloop.
+[2020-02-25 07:53:34.657474] TRACE: App: User's name: Quique
+[2020-02-25 07:53:34.657837] TRACE: App: Entering main loop.
+[2020-02-25 07:53:35.519379] TRACE: App: 1 user's choice is r.
+[2020-02-25 07:53:35.519782] TRACE: App: 1 machine's choice is Paper.
+[2020-02-25 07:53:37.255513] TRACE: App: 2 user's choice is ps.
+[2020-02-25 07:53:37.256072] WARNING: App: User chose a non supported choice: ps
+[2020-02-25 07:53:37.256346] TRACE: App: 2 machine's choice is Paper.
+[2020-02-25 07:53:37.792180] TRACE: App: 3 user's choice is p.
+[2020-02-25 07:53:37.792569] TRACE: App: 3 machine's choice is Scissors.
+[2020-02-25 07:53:38.199449] TRACE: App: 4 user's choice is s.
+[2020-02-25 07:53:38.199856] TRACE: App: 4 machine's choice is Scissors.
+[2020-02-25 07:53:38.810716] TRACE: App: 5 user's choice is p.
+[2020-02-25 07:53:38.811090] TRACE: App: 5 machine's choice is Rock.
+[2020-02-25 07:54:01.088297] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: first_log.log
+[2020-02-25 07:54:01.088392] TRACE: App: Initializing setup and gameloop.
+[2020-02-25 07:54:02.384076] TRACE: App: User's name: Quique
+[2020-02-25 07:54:02.384454] TRACE: App: Entering main loop.
+[2020-02-25 07:54:03.216270] TRACE: App: 1 user's choice is r.
+[2020-02-25 07:54:03.216642] TRACE: App: 1 machine's choice is Paper.
+[2020-02-25 07:54:04.409211] TRACE: App: 2 user's choice is p.
+[2020-02-25 07:54:04.409607] TRACE: App: 2 machine's choice is Paper.
+[2020-02-25 07:54:04.788042] TRACE: App: 3 user's choice is s.
+[2020-02-25 07:54:04.788408] TRACE: App: 3 machine's choice is Paper.
+[2020-02-25 07:54:05.504122] TRACE: App: 4 user's choice is p.
+[2020-02-25 07:54:05.504493] TRACE: App: 4 machine's choice is Scissors.
+[2020-02-25 07:54:05.504713] TRACE: App: Game ended

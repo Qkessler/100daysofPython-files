@@ -1,4 +1,6 @@
 import game
+import logbook
+import sys
 
 def init_logging(filename: str = None):
         level = logbook.TRACE
