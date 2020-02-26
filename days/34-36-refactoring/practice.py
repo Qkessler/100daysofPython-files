@@ -14,3 +14,9 @@ def get_edad(persona):
 
 persona = 'Quique'
 print(f'{persona} tiene {get_edad(persona)} años')
+
+# Para mejorar el counter, usamos los enumerates.
+
+# El uno que ponemos detrás de personas es para indicar dónde empieza el index.
+for i, persona in enumerate(personas, 1):
+    print(f'Persona {i}: {persona}')
