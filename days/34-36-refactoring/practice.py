@@ -24,6 +24,8 @@ for i, persona in enumerate(personas, 1):
 # Para manejar los contextos teníamos varias opciones: Una era usar try-except, pero daba error
 # dejando por ejemplo el fichero abierto. Nos interesa usar with, que cierra automáticamente.
 
-with open('practica.py', 'w') as fichero:
-    fichero.write('')
-    raise Exception
+# with open('practica.py', 'w') as fichero:
+#     fichero.write('')
+#     raise Exception
+
+print(max(dic, key=lambda x: x[1]))
