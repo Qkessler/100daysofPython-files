@@ -76,7 +76,7 @@ class Game():
             name = input("- ").strip()
             if name == "":
                 app_log.error("User chose a blank name")
-                raise ValueError("ERROR: Name cannot be blank!")       
+                raise ValueError("ERROR: Name cannot be blank!")
         app_log.trace("User's name: {}".format(name))
         print("Hey {}! Welcome to the rps game!".format(name))
         print('You start with 3 lives.')
