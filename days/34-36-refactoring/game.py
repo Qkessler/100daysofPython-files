@@ -1,5 +1,4 @@
 import random
-# import sys
 import logbook
 
 
@@ -7,30 +6,29 @@ app_log = logbook.Logger('App')
 
 
 class Roll():
+    dict_defeat = {'Rock': 'Scissors',
+                   'Paper': 'Rock',
+                   'Scissors': 'Paper'
+                   }
+    dict_defeated = {'Rock': 'Paper',
+                     'Paper': 'Scissors',
+                     'Scissors': 'Rock'
+                     }
+
     def __init__(self, name):
         self.name = name
         self.defeat = self.defeat()
         self.beDefeated = self.beDefeated()
 
     def defeat(self):
-        if self.name == 'Rock':
-            return 'Scissors'
-        elif self.name == 'Paper':
-            return 'Rock'
-        elif self.name == 'Scissors':
-            return 'Paper'
-        else:
+        if self.name not in self.dict_defeat:
             print('The roll is not coded yet')
+        return self.dict_defeat.get(self.name)
 
     def beDefeated(self):
-        if self.name == 'Rock':                                                                                                                     
-            return 'Paper'                                                                                                                   
-        elif self.name == 'Paper':                                                                                                                  
-            return 'Scissors'
-        elif self.name == 'Scissors':                                                                                                               
-            return 'Rock'
-        else:
+        if self.name not in self.dict_defeated:
             print('The roll is not coded yet')
+        return self.dict_defeated.get(self.name)
 
     def __str__(self):
         return self.name
