@@ -24,7 +24,7 @@ class Roll():
 
     def beDefeated(self):
         if self.name == 'Rock':                                                                                                                     
-            return 'Paper'                                                                                                                       
+            return 'Paper'                                                                                                                   
         elif self.name == 'Paper':                                                                                                                  
             return 'Scissors'
         elif self.name == 'Scissors':                                                                                                               
@@ -78,8 +78,7 @@ class Game():
             name = input("- ").strip()
             if name == "":
                 app_log.error("User chose a blank name")
-                raise ValueError("ERROR: Name cannot be blank!")
-            
+                raise ValueError("ERROR: Name cannot be blank!")       
         app_log.trace("User's name: {}".format(name))
         print("Hey {}! Welcome to the rps game!".format(name))
         print('You start with 3 lives.')
@@ -90,7 +89,8 @@ class Game():
             machine_choice = random.choice(choices)
             print('What are you choosing? r, p, s: ')
             choice = input("- ")
-            app_log.trace("{} user's choice is {}.".format(number_choice, choice))
+            app_log.trace("{} user's choice is {}."
+                          .format(number_choice, choice))
 
             if choice == 'r':
                 print('You have chosen Rock!')
