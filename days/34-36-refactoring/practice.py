@@ -24,6 +24,16 @@ for i, persona in enumerate(personas, 1):
 # Para manejar los contextos teníamos varias opciones: Una era usar try-except, pero daba error
 # dejando por ejemplo el fichero abierto. Nos interesa usar with, que cierra automáticamente.
 
+def funcion_yield(personas=personas):
+    for persona in enumerate(personas, 1):
+        yield i, persona
+
+
+gen = funcion_yield()
+for _ in range(1, 4, 1):
+    j, actual = next(gen)
+    print(f'Persona número {j}: {actual}')
+
 # with open('practica.py', 'w') as fichero:
 #     fichero.write('')
 #     raise Exception
