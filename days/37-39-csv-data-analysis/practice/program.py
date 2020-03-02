@@ -8,6 +8,10 @@ def companies_under_50(data):
 def companies_div_over_4(data):
     return [company for company in data if company.DividendYield >= 4.00]
 
+def companies_close_to_WeekLow(data):
+    # Let's say close is a 10% over it or less.
+    return [company for company in data if company.WeekLow >= 0.95*company.Price]
+
 
 if __name__ == '__main__':
     research.init()    
@@ -20,4 +24,8 @@ if __name__ == '__main__':
     print()
     for company in companies_div_over_4(research.data):
         print(f'{company.Symbol}: {company.DividendYield}')
+    print()
+    print(len(companies_close_to_WeekLow(research.data)))
+    for company in companies_close_to_WeekLow(research.data):
+        print(f'{company.Symbol}: {company.Price} - {company.WeekLow}')
     
