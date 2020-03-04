@@ -1,0 +1,12 @@
+{
+  "data": {
+    "roa" : {
+      "Coca-Cola Co" : "QFS(KO:US,roa,FY-2:FY)",
+      "PepsiCo" : "QFS(PEP:US,roa,FY-2:FY)"
+     },
+    "roic" : {
+      "Coca-Cola Co" : "QFS(KO:US,roic,FY-2:FY)",
+      "PepsiCo" : "QFS(PEP:US,roic,FY-2:FY)"
+     }
+  }
+}
