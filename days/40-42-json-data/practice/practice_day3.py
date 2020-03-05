@@ -4,11 +4,12 @@ from pprint import pprint
 import re
 
 
+key_with_api = 'api_key=e359a9fac7b8b71403adda4610d336c3c7707873'
 API_key = 'e359a9fac7b8b71403adda4610d336c3c7707873'
 URL = 'https://public-api.quickfs.net/v1/data/EPD/cf_cfo?api_key='
 URL_basic = 'https://public-api.quickfs.net/v1/data/'
 METRICS = ' https://public-api.quickfs.net/v1/metrics'
-BATCH_URL = ' https://public-api.quickfs.net/v1/data/batch?api_key=e359a9fac7b8b71403adda4610d336c3c7707873'
+BATCH_URL = ' https://public-api.quickfs.net/v1/data/batch'
 # companies = ' https://public-api.quickfs.net/v1/companies&api_key=e359a9fac7b8b71403adda4610d336c3c7707873'
 URL_withAPI = URL + API_key
 # r = requests.get(METRICS)
@@ -40,9 +41,9 @@ def get_cashflow_metrics():
 
 test_batch = {
   "data": {
-    "roa" : {
-      "Coca-Cola Co" : "QFS(KO:US,roa,FY-2:FY)",
-      "PepsiCo" : "QFS(PEP:US,roa,FY-2:FY)"
+    "mkt_cap" : {
+        "Coca-Cola Co" : "QFS(KO:US,mkt_cap,FY-2:FY)",
+      "PepsiCo" : "QFS(PEP:US,mkt_cap,FY-2:FY)"
      },
     "roic" : {
       "Coca-Cola Co" : "QFS(KO:US,roic,FY-2:FY)",
@@ -51,17 +52,35 @@ test_batch = {
   }
 }
 
-# batch_request = {
-#     'data' : 'QFS(EPD,roic)'
-# }
+def batch_with_marketcap(list_companies):
+    companies_batch = {
+        "data" : {
+            "companies" : {
+            }
+        }
+    }
+    for company in list_companies:
+        companies_batch["data"]["companies"].update( {company : "QFS(" + company + ",mkt_cap, FY-2:FY)"} )
+    return companies_batch
 
+header = {'x-qfs-api-key': API_key}
 
-def get_10_cap_data(company):
-    # URL_10cap = ' https://public-api.quickfs.net/v1/data/'+ company +'/capex&cf_cfo?api_key=e359a9fac7b8b71403adda4610d336c3c7707873'
+def get_list_companies():
+    url_companies = 'https://public-api.quickfs.net/v1/companies/US?'
+    comp_api = "".join([url_companies, key_with_api])
+    print(comp_api)
+    r = requests.get(comp_api)
+    print(r.status_code, r.reason)
+    data = r.json()
+    i = 0
+    list_companies = []
+    for company in data['data']:
+        list_companies.append(company)
+    return list_companies
 
-    # TRYING TO GET BATCH REQUEST WORKING.
-    r = requests.post(BATCH_URL, data=test_batch)
-    data = json.loads(r.text)
+def get_10_cap_data(batch_request):
+    r = requests.post(BATCH_URL, json=batch_request, headers=header)
+    data = r.json()
     return data
 
 
@@ -70,6 +89,20 @@ if __name__ == '__main__':
     #     f.write(str(get_metrics()))
     # get_cashflow_metrics()
     # pprint(test_batch)
-    pprint(get_10_cap_data('EPD'))
+    
+    # pprint(get_10_cap_data('EPD'))
+    # companies_batch = {
+    #     "data" : {
+    #         "companies" : "Hola"
+    #     }
+    # }
+
+    # print(companies_batch["data"]["companies"])
+    
+    list_companies = get_list_companies()
+    # print(list_companies)
+    # print(companies_with_marketcap(list_companies))
+    comp = batch_with_marketcap(list_companies)
+    print(get_10_cap_data(comp))
 
     exit(0)
