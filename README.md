@@ -1,5 +1,5 @@
 # 100daysofPython-files
-These are the files that reflect my progress on the 100 days of python course.
+These are the files that reflect my progress on the 100 days of python Course.
 
 [07/03/20]: I worked today on the exercise proposed in the github:
 Your goal today will be to flesh out `program.py` and `api.py` to:
