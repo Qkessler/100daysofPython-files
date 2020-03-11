@@ -24,4 +24,5 @@ def main(stock):
     return get_data(site)
 
 if __name__ == '__main__':
-    print(main('TXRH'))
+    stock = input(f'Acción:\n')
+    print(main(stock))
