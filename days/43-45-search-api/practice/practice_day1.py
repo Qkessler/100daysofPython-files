@@ -66,7 +66,7 @@ def batch_with_marketcap(list_companies):
         }
     }
     for company in list_companies:
-        companies_batch["data"]["companies"].update( {company : "QFS(" + company + ",mkt_cap, FY-2:FY)"} )
+        companies_batch["data"]["companies"].update( {company : "QFS(" + company + ",roic, FY-2:FY)"} )
     return companies_batch
 
 header = {'x-qfs-api-key': API_key}
