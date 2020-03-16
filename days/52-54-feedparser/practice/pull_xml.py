@@ -3,11 +3,10 @@ import requests
 def init(URL):
     r = requests.get(URL)
     print(r)
-    # printf(r.json())
-    with open('newsfeed.xml', 'wb') as f:
+    with open('elpais.xml', 'w') as f:
         f.write(r.content)
 
 
 if __name__ == '__main___':
-    URL = 'https://www.wsj.com/sitemap.xml'
+    URL = 'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada'
     init(URL)
