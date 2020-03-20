@@ -39,15 +39,9 @@ if __name__ == '__main__':
         movies.append(define_movie(movie))
     print(f'How would you like to sort them?')
     letter = input(f'[d]uration, [t]itle or [s]core\n')
-    # keys = {'d': lambda movie: movie.duration,
-    #         't': lambda movie: movie.title,
-    #         's': lambda movie: movie.imdb_score}
-    # sorted(movies, key=keys.get(letter))
-    if letter == 'd':
-        sorted(movies, key=lambda movie: movie.duration)
-    elif letter == 't':
-        sorted(movies, key=lambda movie: movie.title)
-    elif letter == 's':
-        sorted(movies, key=lambda movie: movie.imdb_score)
+    keys = {'d': lambda movie: movie.duration,
+            't': lambda movie: movie.title,
+            's': lambda movie: movie.imdb_score}
+    sorted(movies, key=keys.get(letter))
     [print(f'{movie.duration} - {movie.title}:{movie.imdb_score}')
      for movie in movies]
