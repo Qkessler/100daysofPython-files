@@ -26,6 +26,6 @@ if __name__ == '__main__':
     print(gh.rate_limiting)
     gist = pb.create_gist(True, {"repo_stats.py": InputFileContent(code)}, "Get GH user's most popular repos")
     print(gist)
-    print(gh.get_emojis()['woman_singer'])
+    print(help(gh.get_emojis()))
     # print(help(pb.create_gist))
     
