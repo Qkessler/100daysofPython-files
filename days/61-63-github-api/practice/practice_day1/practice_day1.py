@@ -1,7 +1,8 @@
 from collections import namedtuple
 import os
-from github import Github, InputFileContent
 from pprint import pprint
+
+from github import Github, InputFileContent
 
 GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
 
