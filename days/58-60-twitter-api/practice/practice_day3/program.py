@@ -9,12 +9,14 @@ if __name__ == '__main__':
     api = tweet_api.init()
     public_tweets = api.home_timeline()
     # pprint(public_tweets[0])
-    # me = api.me()
-    # print(me)
+    me = api.me()
+    print(me.lists())
     user = UserTweets('@quique_kessler')
-    tweets = user.get_tweets()
+    # tweets = user.get_tweets()
     # json_tweets = json.dumps(tweets._json)
     # statuss = []
     # for status in tweets:
     #     statuss.append()
-    print(tweets)
+    # for t in tweets:
+    #     print(t)
+    #     break
