@@ -1,7 +1,6 @@
 import selenium
 import requests
 import bs4
-import pytest
 import typing
 
 
@@ -11,12 +10,14 @@ def pull_site(URL):
     return r
 
 
-def test_firstpage(site: str):
+def firstpage(site: str):
     scraper = bs4.BeautifulSoup(site.text, 'html.parser')
-    print(scraper.find_all('h1'))
-    
+    header = [header.string for header in scraper.h1]
+    navbar = [login.string for login in scraper.find_all('a')][:2]
+    link = scraper.main.a.text
+    return header, navbar, link
 
 
 if __name__ == '__main__':
     site = pull_site('https://pyplanet.herokuapp.com/')
-    test_firstpage()
+    firstpage(site)
