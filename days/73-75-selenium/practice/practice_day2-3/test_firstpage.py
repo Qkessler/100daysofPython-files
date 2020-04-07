@@ -1,5 +1,5 @@
 import pytest
-from practice_day2 import firstpage, pull_site
+from program import firstpage, pull_site
 
 
 site = pull_site('https://pyplanet.herokuapp.com/')
