@@ -1,17 +1,16 @@
-from flask import Flask, request, render_template
-from data import trabajo
+from openpyxl import load_workbook
 import os
 import requests
 from typing import Dict
 from collections import namedtuple
+from pprint import pprint
 
 BOOKS_KEY = os.environ['BOOKS_KEY']
 API_LINK = '&key=' + BOOKS_KEY
 BASE_LINK = 'https://www.googleapis.com/books/v1/volumes?q='
+WB = load_workbook('books.xlsx')
+WS = WB['api']
 Book = namedtuple('Book', 'A B C D E F G')
-app = Flask(__name__)
-books = []
-text = ""
 
 
 def get_data(term):
@@ -23,7 +22,7 @@ def get_data(term):
     for info in items:
         volume_info = info['volumeInfo']
         book = create_book(volume_info)
-        books.append(book)
+        insert_row(book, counter)
         counter += 1
 
 
@@ -32,19 +31,20 @@ def create_book(volume_info: Dict):
                 C=volume_info['language'], D=volume_info['categories'],
                 E=volume_info['pageCount'], F=volume_info['printType'],
                 G=volume_info['publishedDate'])
+    pprint(book)
     return book
 
 
-@app.route('/')
-def index():
-    return render_template('index.html', trabajo=trabajo)
+def insert_row(book: Book, counter):
+    WS['A'+str(counter)] = str(book.A)
+    WS['B'+str(counter)] = str(book.B)
+    WS['C'+str(counter)] = str(book.C)
+    WS['D'+str(counter)] = str(book.D)
+    WS['E'+str(counter)] = str(book.E)
+    WS['F'+str(counter)] = str(book.F)
+    WS['G'+str(counter)] = str(book.G)
+    WB.save('books.xlsx')
 
-
-@app.route('/', methods=['POST'])
-def input_box():
-    text = request.form['u']
-    return text
 
 if __name__ == '__main__':
-    get_data(text)
-    app.run()
+    get_data('investing')
