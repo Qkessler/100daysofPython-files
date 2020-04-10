@@ -17,21 +17,9 @@
 <div>
   <form method="POST">
     <p>Search box</p>
-    <input name="u">
+    <input name="term">
     <input type="submit">
   </form>
-  <table class="table-responsive table-striped table-bordered">
-		<tr>
-            <th>Name</th>
-            <th>Trabajo</th>
-        </tr>
-		{% for name, t in trabajo.items() %}
-			<tr>
-				<td>{{name}}</td>
-				<td>{{t}}</td>
-			</tr>
-		{% endfor %}
-  </table>
 </div>
 
 </body>
