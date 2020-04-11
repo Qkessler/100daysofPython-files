@@ -19,6 +19,7 @@ def prompt_for_name():
 
 if __name__ == "__main__":
     name = prompt_for_name()
+
     with create_db(name) as cursor:
         cursor.execute("""CREATE TABLE test_table
     (col1 TEXT, col2 TEXT, col3 TEXT, col4 INT)
