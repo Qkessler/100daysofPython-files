@@ -1,4 +1,4 @@
 # 100daysofPython-files
 These are the files that reflect my progress on the 100 days of python Course.
 
-[11/04/20]: Started the db group, where I installed the required software and created my first Database with sqlite3!
+[12/04/20]: Ended day 2 of the sqlite3 group, getting the db populated and did some queries.
