@@ -1,4 +1,4 @@
 # 100daysofPython-files
 These are the files that reflect my progress on the 100 days of python Course.
 
-[13/04/20]: Ended sqlite3 group getting a database up and running on my personal project, inserted some data.
+[14/04/20]: Started the plotly group getting some info from the videos and investigating by myself the module page, super interesting.
