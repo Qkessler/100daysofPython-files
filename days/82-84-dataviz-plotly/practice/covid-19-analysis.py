@@ -1,4 +1,4 @@
-import plotly
+import plotly.express as px
 import csv
 from collections import namedtuple
 
@@ -33,4 +33,4 @@ def create_case(row):
 
 if __name__ == '__main__':
     init()
-    print(data[1])
+    fig = px.histogram(data, x="")
