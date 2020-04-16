@@ -66,8 +66,10 @@ def positive_data():
 
 def get_fig(pos_x, pos_y, neg_x, neg_y):
     fig = go.Figure()
-    fig.add_trace(go.Bar(x=pos_x, y=pos_y, name='Positive cases'))
-    fig.add_trace(go.Bar(x=neg_x, y=neg_y, name='Negative cases'))
+    fig.add_trace(go.Bar(x=pos_x, y=pos_y, name='Positive cases',
+                         marker_color='#C70039'))
+    fig.add_trace(go.Bar(x=neg_x, y=neg_y, name='Negative cases',
+                         marker_color='#77D8D8'))
     fig.update_layout(barmode='stack')
     return fig
 
