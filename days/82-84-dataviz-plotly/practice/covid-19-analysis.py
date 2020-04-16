@@ -3,7 +3,7 @@ import csv
 from collections import namedtuple
 
 # This is a list of the thinks I could do to the data:
-# TODO: Get a plot of the result of the age of the patient
+# DONE: Get a plot of the result of the age of the patient
 #       and the sars_cov_exam. The idea is to get the number
 #       with and without it per age. Maybe get two histograms
 #       one with and one without.
@@ -40,15 +40,36 @@ def transpose_tuples(data):
     return transposed
 
 
-def data_age_syncytial():
-    data_dict = {case.patient_age:case.respiratory_syncytial_virus
-                 for case in data if case.respiratory_syncytial_virus}
-    return transpose_tuples(data_dict)
+def negative_data():
+    negative_data = {}
+    for case in data:
+        if case.sars_cov_2_exam_result == 'negative':
+            if case.patient_age not in negative_data.keys():
+                negative_data[case.patient_age] = 1
+            else:
+                negative_data[case.patient_age] += 1
+    negative_data = sorted(negative_data.items(), key=lambda item: item[0])
+    return transpose_tuples(negative_data)
+
+
+def positive_data():
+    positive_data = {}
+    for case in data:
+        if case.sars_cov_2_exam_result == 'positive':
+            if case.patient_age not in positive_data.keys():
+                positive_data[case.patient_age] = 1
+            else:
+                positive_data[case.patient_age] += 1
+    positive_data = sorted(positive_data.items(), key=lambda item: item[0])
+    return transpose_tuples(positive_data)
 
 
 if __name__ == '__main__':
     init()
-    x, y = data_age_syncytial()
-    print(x, y)
-    fig = go.Figure(data=[go.Bar(x=x, y=y)])
+    pos_x, pos_y = positive_data()
+    neg_x, neg_y = negative_data()
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=pos_x, y=pos_y))
+    fig.add_trace(go.Bar(x=neg_x, y=neg_y))
+    fig.update_layout(barmode='stack')
     fig.show()
