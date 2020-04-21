@@ -66,5 +66,8 @@ def update_part():
 def sum_components():
     with access_db() as cursor:
         cursor.execute('SELECT price FROM COMPUTER')
-    print(sum(cursor))
+    sum_rows = 0
+    for row in cursor:
+        sum_rows += row
+    print(sum_rows)
     print()
