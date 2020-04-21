@@ -77,7 +77,7 @@ def list_rooms():
 
 #The scrubbing function. Removes all chars that aren't letters and numbers.
 def scrub(table_name):
-    return ''.join( chr for chr in table_name if chr.isalnum() )
+    return ''.join([chr for chr in table_name if chr.isalnum()])
 
 
 #Checks the users' input to see if it matches a room/table name.
