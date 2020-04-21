@@ -105,7 +105,6 @@ def add_inventory(selection):
         if cont.lower() == 'q':
             break
 
-
 #Returns a list of all items in a room and their total value.
 def view_inventory(selection):
     total = 0
